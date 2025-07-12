@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "RIAN SETIAWAN",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -3, "left": 60.4, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": -100.76, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz2",
+      "top": 31.2,
+      "left": 78.6,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir2", "top": 23.2, "left": 155.82, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 92.4, "left": 311, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 138.35,
+      "left": 278.4,
+      "attrs": { "value": "220000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.3", "bb1:bn.1", "black", [ "h9.6", "v115.2" ] ],
+    [ "bb1:3b.j", "bb1:bn.2", "black", [ "v0" ] ],
+    [ "bb1:4b.g", "esp:12", "white", [ "h-86.4", "v96", "h-144", "v-86.4" ] ],
+    [ "bb1:14b.j", "bb1:bn.11", "black", [ "v38.4" ] ],
+    [ "esp:13", "bb1:13b.h", "white", [ "h-9.45", "v57.6", "h124.8", "v-86.4" ] ],
+    [ "esp:3V3", "bb1:bp.1", "red", [ "h-38.25", "v220.8", "h182.4", "v-56.7" ] ],
+    [ "bb1:12b.j", "bb1:bp.10", "red", [ "v0" ] ],
+    [ "bb1:26b.j", "bb1:bn.21", "black", [ "v38.4", "h0" ] ],
+    [ "bz2:1", "bb1:3b.f", "", [ "$bb" ] ],
+    [ "bz2:2", "bb1:4b.f", "", [ "$bb" ] ],
+    [ "pir2:VCC", "bb1:12b.f", "", [ "$bb" ] ],
+    [ "pir2:OUT", "bb1:13b.f", "", [ "$bb" ] ],
+    [ "pir2:GND", "bb1:14b.f", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:21b.i", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:27b.i", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:27b.h", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:26b.h", "", [ "$bb" ] ],
+    [ "bb1:21b.j", "esp:14", "white", [ "v0", "h-240", "v76.8", "h-163.2", "v-105.6" ] ]
+  ],
+  "dependencies": {}
+}
